@@ -1,0 +1,25 @@
+ID: DEMO
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: DEMO_DB
+   type: hdb
+   path: DEMO_DB
+   requires:
+    - name: hdi_DEMO_DB
+      properties:
+        TARGET_CONTAINER: ~{hdi-container-name}
+    - name: SAPABAP1-grantor
+
+
+resources:
+ - name: hdi_DEMO_DB
+   parameters:
+      config:
+         schema: SAPABAP1DB
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+ - name: SAPABAP1-grantor
+   type: org.cloudfoundry.existing-service

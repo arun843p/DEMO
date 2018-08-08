@@ -1,0 +1,9 @@
+{
+  "DEMO.DEMO_DB.Synonym::SYN_VBAK": {
+    "target": {
+      "object": "VBAK",
+      "schema": "SAPABAP1",
+      "database": "TENANTDB"
+    }
+  }
+}

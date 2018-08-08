@@ -1,0 +1,9 @@
+{
+  "DEMO.DEMO_DB.Synonym::SYN_VBAP": {
+    "target": {
+      "object": "VBAP",
+      "schema": "SAPABAP1",
+      "database": "TENANTDB"
+    }
+  }
+}

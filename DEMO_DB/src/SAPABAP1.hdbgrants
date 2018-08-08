@@ -1,0 +1,14 @@
+{
+	"SAPABAP1-grantor": {
+		"object_owner": { 
+			"roles": [
+				"SAPABAP1::external_access_g"
+			]
+		},
+		"application_user": {
+			"roles": [
+				"SAPABAP1::external_access"
+			]
+		}
+	}
+}
