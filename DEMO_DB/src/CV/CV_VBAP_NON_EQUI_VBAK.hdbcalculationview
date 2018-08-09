@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="3.0" id="DEMO.DEMO_DB.CV::CV_VBAP_NON_EQUI_VBAK" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" enforceSqlExecution="false" outputViewType="Projection" cacheInvalidationPeriod="NONE">
+<descriptions defaultDescription="CV_VBAP_NON_EQUI_VBAK"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="DEMO.DEMO_DB.PV::PV_VBAP">
+    <resourceUri>DEMO.DEMO_DB.PV::PV_VBAP</resourceUri>
+  </DataSource>
+  <DataSource id="DEMO.DEMO_DB.PV::PV_VBAK">
+    <resourceUri>DEMO.DEMO_DB.PV::PV_VBAK</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:NonEquiJoinView" id="NonEquiJoin_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="VBELN">
+        <descriptions defaultDescription="VBELN"/>
+      </viewAttribute>
+      <viewAttribute id="AEDAT">
+        <descriptions defaultDescription="AEDAT"/>
+      </viewAttribute>
+      <viewAttribute id="ERDAT">
+        <descriptions defaultDescription="ERDAT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="DEMO.DEMO_DB.PV::PV_VBAP">
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AEDAT" source="AEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ERDAT" source="ERDAT"/>
+    </input>
+    <input node="DEMO.DEMO_DB.PV::PV_VBAK"/>
+  
+    <joinAttribute leftColumn="AEDAT" rightColumn="ERDAT" operator="GE"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="NonEquiJoin_1">
+  <attributes>
+    <attribute id="VBELN" order="1" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="NonEquiJoin_1" columnName="VBELN"/>
+    </attribute>
+    <attribute id="AEDAT" order="2" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="AEDAT"/>
+      <keyMapping columnObjectName="NonEquiJoin_1" columnName="AEDAT"/>
+    </attribute>
+    <attribute id="ERDAT" order="3" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="ERDAT"/>
+      <keyMapping columnObjectName="NonEquiJoin_1" columnName="ERDAT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="NonEquiJoin_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="DEMO.DEMO_DB.PV::PV_VBAP" modelObjectNameSpace="NonEquiJoin_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="DEMO.DEMO_DB.PV::PV_VBAK" modelObjectNameSpace="NonEquiJoin_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
