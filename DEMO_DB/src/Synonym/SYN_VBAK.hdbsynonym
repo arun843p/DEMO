@@ -5,5 +5,12 @@
       "schema": "SAPABAP1",
       "database": "TENANTDB"
     }
+  },
+  "DEMO.DEMO_DB.Synonym::SYN_MARA": {
+    "target": {
+      "object": "MARA",
+      "schema": "SAPABAP1",
+      "database": "TENANTDB"
+    }
   }
 }
