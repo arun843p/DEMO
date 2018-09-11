@@ -11,6 +11,11 @@ modules:
       properties:
         TARGET_CONTAINER: ~{hdi-container-name}
     - name: SAPABAP1-grantor
+    - name: myapp2-grantor
+      group: SERVICE_REPLACEMENTS
+      properties: 
+        key: logical-myapp2-grantor
+        service: ~{myapp2-grantor-service}
 
 
 resources:
@@ -22,4 +27,10 @@ resources:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
  - name: SAPABAP1-grantor
+   type: org.cloudfoundry.existing-service
+ - name: myapp2-grantor
+   properties:
+     myapp2-grantor-service: ${service-name}
+   parameters:
+     service-name: RAMAHAJAN-1sauddtpuvunk8ob-myapp2-hdi_db
    type: org.cloudfoundry.existing-service

@@ -1,0 +1,9 @@
+{
+  "DEMO.DEMO_DB::CUSTOMER": {
+    "target": {
+      "object": "myapp2.db::tables.Customers",
+      "schema": "MYAPP2DB_1",
+      "database": "TENANTDB"
+    }
+  }
+}

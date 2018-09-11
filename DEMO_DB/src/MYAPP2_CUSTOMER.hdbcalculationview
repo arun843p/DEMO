@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="DEMO.DEMO_DB::MYAPP2_CUSTOMER" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="MYAPP2_CUSTOMER.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="DEMO.DEMO_DB::CUSTOMER">
+    <resourceUri>DEMO.DEMO_DB::CUSTOMER</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="DEMO.DEMO_DB::CUSTOMER">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="CUSTOMER" columnName="id"/>
+    </attribute>
+    <attribute id="name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="name"/>
+      <keyMapping columnObjectName="CUSTOMER" columnName="name"/>
+    </attribute>
+    <attribute id="lifeSpend" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="lifeSpend"/>
+      <keyMapping columnObjectName="CUSTOMER" columnName="lifeSpend"/>
+    </attribute>
+    <attribute id="newSpend" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="newSpend"/>
+      <keyMapping columnObjectName="CUSTOMER" columnName="newSpend"/>
+    </attribute>
+    <attribute id="income" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="income"/>
+      <keyMapping columnObjectName="CUSTOMER" columnName="income"/>
+    </attribute>
+    <attribute id="loyalty" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="loyalty"/>
+      <keyMapping columnObjectName="CUSTOMER" columnName="loyalty"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
