@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="DEMO.DEMO_DB.NEW_FEATURES::CV_DATA_LINEAGE" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DATA_LINEAGE"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="DEMO.DEMO_DB::CUSTOMER">
+    <resourceUri>DEMO.DEMO_DB::CUSTOMER</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="id">
+        <descriptions defaultDescription="id"/>
+      </viewAttribute>
+      <viewAttribute id="name">
+        <descriptions defaultDescription="name"/>
+      </viewAttribute>
+      <viewAttribute id="lifeSpend">
+        <descriptions defaultDescription="lifeSpend"/>
+      </viewAttribute>
+      <viewAttribute id="newSpend">
+        <descriptions defaultDescription="newSpend"/>
+      </viewAttribute>
+      <viewAttribute id="income">
+        <descriptions defaultDescription="income"/>
+      </viewAttribute>
+      <viewAttribute id="loyalty">
+        <descriptions defaultDescription="loyalty"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="DEMO.DEMO_DB::CUSTOMER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="id" source="id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="name" source="name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="lifeSpend" source="lifeSpend"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="newSpend" source="newSpend"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="income" source="income"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="loyalty" source="loyalty"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="Projection_1" columnName="id"/>
+    </attribute>
+    <attribute id="name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="name"/>
+      <keyMapping columnObjectName="Projection_1" columnName="name"/>
+    </attribute>
+    <attribute id="lifeSpend" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="lifeSpend"/>
+      <keyMapping columnObjectName="Projection_1" columnName="lifeSpend"/>
+    </attribute>
+    <attribute id="newSpend" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="newSpend"/>
+      <keyMapping columnObjectName="Projection_1" columnName="newSpend"/>
+    </attribute>
+    <attribute id="loyalty" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="loyalty"/>
+      <keyMapping columnObjectName="Projection_1" columnName="loyalty"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="INCOME_CATEGORY" order="7" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="13">
+        <formula>CASE WHEN &quot;income&quot; &gt;= 5
+THEN 'APL'
+ELSE 'BPL'
+END</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures>
+    <measure id="income" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="income"/>
+      <measureMapping columnObjectName="Projection_1" columnName="income"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="215"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

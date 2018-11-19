@@ -1,14 +1,14 @@
 {
-  "DEMO.DEMO_DB.Synonym::SYN_VBAK": {
+  "DEMO.DEMO_DB.Synonym::SYN_VBAK_1": {
     "target": {
       "object": "VBAK",
       "schema": "SAPABAP1",
       "database": "TENANTDB"
     }
   },
-  "DEMO.DEMO_DB.Synonym::SYN_MARA": {
+  "DEMO.DEMO_DB.Synonym::SYN_VBAP_1": {
     "target": {
-      "object": "MARA",
+      "object": "VBAP",
       "schema": "SAPABAP1",
       "database": "TENANTDB"
     }

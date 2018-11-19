@@ -1,0 +1,16 @@
+{
+  "DEMO.DEMO_DB.Synonym::SYN_T": {
+    "target": {
+      "object": "T006",
+      "schema": "SAPABAP1",
+      "database": "TENANTDB"
+    }
+  },
+  "DEMO.DEMO_DB.Synonym::SYN_C": {
+    "target": {
+      "object": "TCURR",
+      "schema": "SAPABAP1",
+      "database": "TENANTDB"
+    }
+  }
+}

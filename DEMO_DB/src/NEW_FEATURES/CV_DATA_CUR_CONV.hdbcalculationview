@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="DEMO.DEMO_DB.NEW_FEATURES::CV_DATA_CUR_CONV" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DATA_UOM_CONV"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="DEMO.DEMO_DB.CV::CV_VBAP">
+    <resourceUri>DEMO.DEMO_DB.CV::CV_VBAP</resourceUri>
+  </DataSource>
+  <DataSource id="DEMO.DEMO_DB.CV::CV_VBAK">
+    <resourceUri>DEMO.DEMO_DB.CV::CV_VBAK</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggr_1">
+    <viewAttributes>
+      <viewAttribute id="MANDT">
+        <descriptions defaultDescription="MANDT"/>
+      </viewAttribute>
+      <viewAttribute id="VBELN">
+        <descriptions defaultDescription="VBELN"/>
+      </viewAttribute>
+      <viewAttribute id="POSNR">
+        <descriptions defaultDescription="POSNR"/>
+      </viewAttribute>
+      <viewAttribute id="WAERK">
+        <descriptions defaultDescription="WAERK"/>
+      </viewAttribute>
+      <viewAttribute id="MWSBP" aggregationType="sum">
+        <descriptions defaultDescription="MWSBP"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ZMENG" aggregationType="sum">
+        <descriptions defaultDescription="ZMENG"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="DEMO.DEMO_DB.CV::CV_VBAP">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WAERK" source="WAERK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MWSBP" source="MWSBP"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZMENG" source="ZMENG"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_2">
+    <viewAttributes>
+      <viewAttribute id="MANDT">
+        <descriptions defaultDescription="MANDT"/>
+      </viewAttribute>
+      <viewAttribute id="VBELN">
+        <descriptions defaultDescription="VBELN"/>
+      </viewAttribute>
+    
+      <viewAttribute id="KURST">
+        <descriptions defaultDescription="KURST"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="DEMO.DEMO_DB.CV::CV_VBAK">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="KURST" source="KURST"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="MANDT">
+        <descriptions defaultDescription="MANDT"/>
+      </viewAttribute>
+      <viewAttribute id="VBELN">
+        <descriptions defaultDescription="VBELN"/>
+      </viewAttribute>
+      <viewAttribute id="POSNR">
+        <descriptions defaultDescription="POSNR"/>
+      </viewAttribute>
+      <viewAttribute id="WAERK">
+        <descriptions defaultDescription="WAERK"/>
+      </viewAttribute>
+      <viewAttribute id="MWSBP" aggregationType="sum">
+        <descriptions defaultDescription="MWSBP"/>
+      </viewAttribute>
+    
+      <viewAttribute id="KURST">
+        <descriptions defaultDescription="KURST"/>
+      </viewAttribute>
+      <viewAttribute id="ZMENG" aggregationType="sum">
+        <descriptions defaultDescription="ZMENG"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Aggr_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSNR" source="POSNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WAERK" source="WAERK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MWSBP" source="MWSBP"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZMENG" source="ZMENG"/>
+    </input>
+    <input node="Aggregation_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KURST" source="KURST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+    </input>
+    <joinAttribute name="VBELN"/>
+    <joinAttribute name="MANDT"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Join_1" columnName="MANDT"/>
+    </attribute>
+    <attribute id="VBELN" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBELN"/>
+    </attribute>
+    <attribute id="POSNR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSNR"/>
+      <keyMapping columnObjectName="Join_1" columnName="POSNR"/>
+    </attribute>
+    <attribute id="WAERK" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WAERK"/>
+      <keyMapping columnObjectName="Join_1" columnName="WAERK"/>
+    </attribute>
+  
+    <attribute id="KURST" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KURST"/>
+  
+      <keyMapping columnObjectName="Join_1" columnName="KURST"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="MWSBP" order="5" aggregationType="sum" measureType="quantity" semanticType="quantity">
+      <descriptions defaultDescription="MWSBP"/>
+      <unitCurrencyAttribute attributeName="KURST"/>
+      <unitConversion generateOutputUnitCurrencyAttribute="true" outputUnitCurrencyAttributeName="MWSBP_UNIT">
+        <client>
+          <value>$$client$$</value>
+        </client>
+        <unitConversionTables rates="DEMO.DEMO_DB.Synonym::SYN_VBAK_1" dimension="DEMO.DEMO_DB.Synonym::SYN_VBAK_1"/>
+        <sourceUnit>
+          <attribute attributeName="KURST"/>
+        </sourceUnit>
+        <targetUnit>
+          <attribute attributeName="KURST"/>
+        </targetUnit>
+      </unitConversion>
+      <measureMapping columnObjectName="Join_1" columnName="MWSBP"/>
+    </measure>
+  
+    <measure id="ZMENG" order="7" aggregationType="sum" measureType="quantity" semanticType="quantity">
+      <descriptions defaultDescription="ZMENG"/>
+  
+      <conversionReference>MWSBP</conversionReference>
+      <measureMapping columnObjectName="Join_1" columnName="ZMENG"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="233" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggr_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="223" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggr_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Aggregation_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
