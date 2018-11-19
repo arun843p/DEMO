@@ -44,11 +44,21 @@
       </calculatedAttribute>
   
     <calculatedAttribute id="INCOME_CATEGORY" order="8" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+  
       <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="20">
+  
         <formula>CASE WHEN &quot;income&quot; &gt;= 5
 THEN 'APL'
 ELSE 'BPL'
 END</formula>
+  
+      </keyCalculation>
+  
+      </calculatedAttribute>
+  
+    <calculatedAttribute id="CC_NEW_1" order="9" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="13">
+        <formula>'a'</formula>
       </keyCalculation>
       </calculatedAttribute>
   </calculatedAttributes>
